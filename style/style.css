@@ -29,13 +29,14 @@ main {
 }
 
 .contenedor-principal {
+    
     width: 100%;
     height: 100%;
   /*background-color:  aqua; */
 }
 
 .contenedor-principal textarea {
-    background-color: #f5f1f15d;
+    background-color: #EFF1FA;
     font-size: 2rem;
     width: 50%;
     height: 50%;
@@ -85,8 +86,7 @@ main {
 }
 
 
-.contenedor-secundario {
-    
+.contenedor-secundario {   
     background-color: white;
     width: 30%;
     margin-right: 40px;
@@ -148,6 +148,7 @@ main {
         flex-direction: column;
   
     }
+
   .contenedor-botones {
         width: 100%;
         align-items: center;
@@ -155,15 +156,49 @@ main {
         flex-direction: column;
         padding-bottom: 60px;
     }
+
+    .contenedor-botones button {
+        width: 30%; 
+        
+        margin-right: 0px; 
+    }
     
     .contenedor-secundario {
         width: auto;
-        overflow: auto;
+        margin-right: 0px;
+        margin-bottom: 10px;
     }
     .contenedor-secundario img {
         justify-content: center;
         display: none;
     }
 
+    .btn-copiar {
+        width: 50%; 
+    }
+
 }
 
+/* Diseño móvil */
+@media (width <= 699px) {
+
+    
+    .contenedor-principal textarea {
+        font-size: 1.5rem;
+    }
+
+    .contenedor-botones button {
+        width: 40%; 
+        
+        margin-right: 0px; 
+    }
+
+    .btn-copiar {
+        width: 50%; 
+    }
+
+    .contenedor-secundario {
+        width: 50%;
+
+    }
+}
