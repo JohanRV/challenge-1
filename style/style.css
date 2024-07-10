@@ -7,7 +7,7 @@
 
 body {
     box-sizing: border-box;
-    background-color: #f5f1f15d;
+    background-color: #EFF1FA;
     font-family: "Inter", sans-serif;
     font-weight: 400;
 }
@@ -78,7 +78,7 @@ main {
 
 .btn-desencriptar  {
     color: #0A3871;
-    background-color: #F3F5FC;
+    background-color: #D8DFE8;
     
 }
 
@@ -86,7 +86,7 @@ main {
 .contenedor-secundario {
     
     box-shadow: 10px 5px 5px #f5f1f15d;
-    background-color: #f5f1f15d;
+    background-color: white;
     width: 30%;
     margin-right: 40px;
     padding: 30px;
@@ -110,7 +110,7 @@ main {
 
 
 .contenedor-secundario textarea {
-    background-color: #f5f1f15d;
+    background-color: white;
     height: 150px;
     width: 100%;
     border: none;
@@ -130,5 +130,5 @@ main {
     padding: 16px;
     border-radius: 24px;
     color: #0A3871;
-    background-color: #f5f1f15d;
+    background-color: #D8DFE8;
 }
