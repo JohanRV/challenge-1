@@ -69,10 +69,13 @@ function llamadaDsencriptar() {
     enviarTexto(desencriptarTexto());
     
 }
-/*
-La letra "e" es convertida para "enter"
-La letra "i" es convertida para "imes"
-La letra "a" es convertida para "ai"
-La letra "o" es convertida para "ober"
-La letra "u" es convertida para "ufat"
-*/
+
+function copiarTexto() {
+    if(resultado.value != '') {
+        navigator.clipboard.writeText(resultado.value);
+        alert('Contenido copiado al portapapeles');
+    }else {
+        console.log('Ocurrio un error inesperado');
+    }
+    
+}
