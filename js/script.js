@@ -22,7 +22,7 @@ function verificarTexto() {
         encriptarTexto();
         desencriptarTexto();
     } else {
-        console.log('El texto no cumple con todas las condiciones requeridas.');
+        alert('El texto no cumple con todas las condiciones requeridas.');
     }
 }
 
@@ -32,7 +32,7 @@ function verificarTexto() {
 function enviarTexto(texto) {
   return resultado.value = texto;
 }
-
+//funcion encriptar
 function encriptarTexto() {
     let texto = capturarTexto();
 
@@ -45,6 +45,7 @@ function encriptarTexto() {
     return texto;
 }
 
+//funcion desencriptar
 function desencriptarTexto() {
     let texto = capturarTexto();
 
@@ -57,19 +58,19 @@ function desencriptarTexto() {
 
     return texto;
 }
-
+//funcion del btn encriptar
 function llamadaEncriptar() {
     verificarTexto();
     enviarTexto(encriptarTexto());
     
 }
-
+//funcion del btn desencriptar
 function llamadaDsencriptar() {
     verificarTexto();
     enviarTexto(desencriptarTexto());
     
 }
-
+//funcion copiar texto
 function copiarTexto() {
     if(resultado.value != '') {
         navigator.clipboard.writeText(resultado.value);
