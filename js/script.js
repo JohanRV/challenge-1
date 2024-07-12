@@ -1,6 +1,6 @@
 //Valor del textArea de salida
 const resultado = document.getElementById('ouput-text');
-const array = [];
+
 //Funcion captura de texto del textArea de entrada
 function capturarTexto() {
     return document.getElementById('input-text').value;
@@ -11,18 +11,16 @@ function verificarTexto() {
     const texto = capturarTexto();
 
     // Expresiones regulares
-    const letrasMayusculas = /[A-Z]/;
-    const letrasAcentuadas = /[áéíóúÁÉÍÓÚüÜ]/;
-    const letrasCaracteresEspeciales = /[!\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]/;
+    const letrasMinusculas = /^[a-zñ]+$/;
 
     // Variables para verificar condiciones
-    let cumpleMayuscula = letrasMayusculas.test(texto);
-    let cumpleAcentuada = letrasAcentuadas.test(texto);
-    let cumpleEspecial = letrasCaracteresEspeciales.test(texto);
+    let cumpleMinuscula = letrasMinusculas.test(texto);
 
     // Verifica si cumple con todas las condiciones simultáneamente
-    if (cumpleMayuscula && cumpleAcentuada && cumpleEspecial) {
-        console.log('El texto cumple con al menos una letra mayúscula, una letra acentuada y un caracter especial.');
+    if (cumpleMinuscula) {
+        console.log('El texto cumple');
+        encriptarTexto();
+        desencriptarTexto();
     } else {
         console.log('El texto no cumple con todas las condiciones requeridas.');
     }
@@ -32,15 +30,45 @@ function verificarTexto() {
 
 //Funcion de enviar el texto
 function enviarTexto(texto) {
-  return resultado.value = capturarTexto();
+  return resultado.value = texto;
 }
 
-function encriptar() {
+function encriptarTexto() {
+    let texto = capturarTexto();
+
+    texto = texto.replaceAll('a', 'ai');
+    texto = texto.replaceAll('e', 'enter');
+    texto = texto.replaceAll('i', 'imes');
+    texto = texto.replaceAll('o', 'ober');
+    texto = texto.replaceAll('u', 'ufat');
+
+    return texto;
+}
+
+function desencriptarTexto() {
+    let texto = capturarTexto();
+    
+
+    texto = texto.replaceAll('ai', 'a');
+    texto = texto.replaceAll('enter', 'e');
+    texto = texto.replaceAll('imes', 'i');
+    texto = texto.replaceAll('ober', 'o');
+    texto = texto.replaceAll('ufat', 'u');
+
+    return texto;
+}
+
+function llamadaEncriptar() {
     verificarTexto();
-    enviarTexto();
+    enviarTexto(encriptarTexto());
     
 }
 
+function llamadaDsencriptar() {
+    verificarTexto();
+    enviarTexto(desencriptarTexto());
+    
+}
 /*
 La letra "e" es convertida para "enter"
 La letra "i" es convertida para "imes"
