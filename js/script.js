@@ -1,15 +1,23 @@
 //Valor del textArea de salida
 const resultado = document.getElementById('ouput-text');
+//texto del textArea de entrada
+const texto = document.getElementById('input-text');
+
+//Botones
+const btnEncriptar = document.getElementById('btn-encriptar');
+btnEncriptar.addEventListener('click',llamadaEncriptar);
+
+const btnDesencriptar = document.getElementById('btn-desencriptar');
+btnDesencriptar.addEventListener('click',llamadaDesencriptar);
 
 //Funcion captura de texto del textArea de entrada
 function capturarTexto() {
     return document.getElementById('input-text').value;
 }
+
 //Funcion de comprobacion del texto
 function verificarTexto() {
-    // Captura el texto una vez
     const texto = capturarTexto();
-
     // Expresiones regulares
     const letrasMinusculas = /^[a-zñ]+$/;
 
@@ -19,14 +27,27 @@ function verificarTexto() {
     // Verifica si cumple con todas las condiciones simultáneamente
     if (cumpleMinuscula) {
         console.log('El texto cumple');
-        encriptarTexto();
-        desencriptarTexto();
-    } else {
-        alert('El texto no cumple con todas las condiciones requeridas.');
+        encriptarTexto(texto);
+        desencriptarTexto(texto);
+    } 
+    else {
+        if(texto == '') {
+            alert('El campo no puede estar vacio por favor ingrese su texto');
+            borrarTexto();
+        }
+        else {
+            alert('El texto no cumple con todas las condiciones requeridas.');
+            borrarTexto();
+        }
+
     }
 }
 
-
+//limpiar los textAreas
+function borrarTexto() {
+    resultado.value = '';
+    texto.value = '';
+}
 
 //Funcion de enviar el texto
 function enviarTexto(texto) {
@@ -36,11 +57,11 @@ function enviarTexto(texto) {
 function encriptarTexto() {
     let texto = capturarTexto();
 
-    texto = texto.replaceAll('a', 'ai');
-    texto = texto.replaceAll('e', 'enter');
-    texto = texto.replaceAll('i', 'imes');
-    texto = texto.replaceAll('o', 'ober');
-    texto = texto.replaceAll('u', 'ufat');
+    texto = texto.replace(/a/g, 'ai');
+    texto = texto.replace(/e/g, 'enter');
+    texto = texto.replace(/i/g, 'imes');
+    texto = texto.replace(/o/g, 'ober');
+    texto = texto.replace(/u/g, 'ufat');
 
     return texto;
 }
@@ -48,35 +69,44 @@ function encriptarTexto() {
 //funcion desencriptar
 function desencriptarTexto() {
     let texto = capturarTexto();
-
-
-    texto = texto.replaceAll('ufat', 'u');
-    texto = texto.replaceAll('ober', 'o');
-    texto = texto.replaceAll('imes', 'i');
-    texto = texto.replaceAll('enter', 'e');
-    texto = texto.replaceAll('ai', 'a');
+    
+    texto = texto.replace(/ufat/g, 'u');
+    texto = texto.replace(/ober/g, 'o');
+    texto = texto.replace(/imes/g, 'i');
+    texto = texto.replace(/enter/g, 'e');
+    texto = texto.replace(/ai/g, 'a');
 
     return texto;
 }
 //funcion del btn encriptar
 function llamadaEncriptar() {
-    verificarTexto();
-    enviarTexto(encriptarTexto());
     
+    verificarTexto(capturarTexto());
+    enviarTexto(encriptarTexto());
+    texto.value = '';
+    mensaje();
 }
 //funcion del btn desencriptar
-function llamadaDsencriptar() {
-    verificarTexto();
+function llamadaDesencriptar() {
+    verificarTexto(capturarTexto());
     enviarTexto(desencriptarTexto());
-    
+    texto.value = '';
+    mensaje();
 }
 //funcion copiar texto
 function copiarTexto() {
     if(resultado.value != '') {
         navigator.clipboard.writeText(resultado.value);
-        alert('Contenido copiado al portapapeles');
+        alert('Contenido copiado al portapapeles, limpiando campos');
+        borrarTexto();
     }else {
         console.log('Ocurrio un error inesperado');
     }
     
+}
+
+function mensaje () {
+    const mensaje = document.getElementById('mensaje-encontrado');
+
+    mensaje.innerHTML = 'Mensaje procesado correctamente';
 }
