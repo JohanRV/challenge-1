@@ -19,13 +19,10 @@ function capturarTexto() {
 function verificarTexto() {
     const texto = capturarTexto();
     // Expresiones regulares
-    const letrasMinusculas = /^[a-zñ]+$/;
-
-    // Variables para verificar condiciones
-    let cumpleMinuscula = letrasMinusculas.test(texto);
+    const tieneCaracteresPermitidos = /^[a-zñ0-9\s]+$/;
 
     // Verifica si cumple con todas las condiciones simultáneamente
-    if (cumpleMinuscula) {
+    if (tieneCaracteresPermitidos.test(texto)) {
         console.log('El texto cumple');
         encriptarTexto(texto);
         desencriptarTexto(texto);
