@@ -77,18 +77,17 @@ function desencriptarTexto() {
 }
 //funcion del btn encriptar
 function llamadaEncriptar() {
-    
     verificarTexto(capturarTexto());
     enviarTexto(encriptarTexto());
+    mensaje(`${(texto.value == '')? 'Ningún mensaje fue encontrado' : 'Texto encriptado correctamente' }`);
     texto.value = '';
-    mensaje();
 }
 //funcion del btn desencriptar
 function llamadaDesencriptar() {
     verificarTexto(capturarTexto());
     enviarTexto(desencriptarTexto());
+    mensaje(`${(texto.value == '')? 'Ningún mensaje fue encontrado' : 'Texto desencriptado correctamente' }`);
     texto.value = '';
-    mensaje();
 }
 //funcion copiar texto
 function copiarTexto() {
@@ -102,8 +101,7 @@ function copiarTexto() {
     
 }
 
-function mensaje () {
+function mensaje (texto) {
     const mensaje = document.getElementById('mensaje-encontrado');
-
-    mensaje.innerHTML = 'Mensaje procesado correctamente';
+    mensaje.innerHTML = texto;
 }
