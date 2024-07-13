@@ -26,6 +26,7 @@ main {
     align-items: center;
     text-align: center;
     width: auto;
+    height: auto;
 }
 
 .contenedor-principal {
@@ -39,7 +40,7 @@ main {
     background-color: #EFF1FA;
     font-size: 2rem;
     width: 50%;
-    height: 50%;
+    height: 30vh;
     cursor: pointer;
     resize: none;
     border: none;
@@ -185,6 +186,7 @@ main {
     
     .contenedor-principal textarea {
         font-size: 1.5rem;
+        height: 15vh;
     }
 
     .contenedor-botones button {
