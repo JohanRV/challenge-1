@@ -10,6 +10,9 @@ btnEncriptar.addEventListener('click',llamadaEncriptar);
 const btnDesencriptar = document.getElementById('btn-desencriptar');
 btnDesencriptar.addEventListener('click',llamadaDesencriptar);
 
+const btnCopiar = document.getElementById('btn-copiar');
+btnCopiar.addEventListener('click',copiarTexto);
+
 //Funcion captura de texto del textArea de entrada
 function capturarTexto() {
     return document.getElementById('input-text').value;
@@ -100,7 +103,7 @@ function copiarTexto() {
     }
     
 }
-
+//funcion mensaje 
 function mensaje (texto) {
     const mensaje = document.getElementById('mensaje-encontrado');
     mensaje.innerHTML = texto;
