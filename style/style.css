@@ -136,7 +136,7 @@ main {
 }
 
 /* Diseño tablet */
-@media(width <= 1200px) {
+@media(max-width: 1200px) {
 
     header {
         padding: 24px;
@@ -180,7 +180,7 @@ main {
 }
 
 /* Diseño móvil */
-@media (width <= 699px) {
+@media (max-width: 699px) {
 
     
     .contenedor-principal textarea {
