@@ -13,6 +13,7 @@ btnDesencriptar.addEventListener('click',llamadaDesencriptar);
 const btnCopiar = document.getElementById('btn-copiar');
 btnCopiar.addEventListener('click',copiarTexto);
 
+
 //Funcion captura de texto del textArea de entrada
 function capturarTexto() {
     return document.getElementById('input-text').value;
@@ -55,15 +56,29 @@ function enviarTexto(texto) {
 }
 //funcion encriptar
 function encriptarTexto() {
+    let resultado = '';
     let texto = capturarTexto();
+    //objeto de las llaves de encriptacion
+    const llavesEncriptadas = {
+        a: 'ai',
+        e: 'enter',
+        i: 'imes',
+        o: 'ober',
+        u: 'ufat'
+    };
+    //iteramos en el texto
+    for (let letras of texto) {
+        //Si existe un valor en la cadena que coincida con las llaves retornara la key del valor del objeto llavesEncriptadas
+        if(llavesEncriptadas[letras]) {
+            // asignamos el resultado si coincide
+            resultado += llavesEncriptadas[letras];
+        }else {
+            // lo dejamos igual
+            resultado += letras;
+        }
+    }
 
-    texto = texto.replaceAll('a', 'ai');
-    texto = texto.replaceAll('e', 'enter');
-    texto = texto.replaceAll('i', 'imes');
-    texto = texto.replaceAll('o', 'ober');
-    texto = texto.replaceAll('u', 'ufat');
-
-    return texto;
+    return resultado;
 }
 
 //funcion desencriptar
